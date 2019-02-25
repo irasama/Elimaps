@@ -5,4 +5,4 @@ Te lo puedes bajar
 
 ## Main code
 
-Codigo central es mapasEli.m. Te los puedes bajar todos juntos, y luego editar (tienes que hacerte un usuario) lo que anyadas al codigo.
+Codigo central es **mapasEli.m** Te los puedes bajar todos juntos, y luego editar (tienes que hacerte un usuario) lo que anyadas al codigo.
