@@ -1,5 +1,6 @@
 function [data,dataname]=importElimaps(path)
-%import maps tif when giving the path
+%import maps tif when giving the path - available .tif images that are
+%inside the folder
 files = dir([path '/*.tif']);          
 dataname = {files.name}';
 map = imread([files(1).folder '/' files(1).name]);
