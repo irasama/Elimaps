@@ -1,9 +1,12 @@
-function [std,mean,median,max,min,h]=statsXcover(class,data,pathuse)
+function [std,mean,median,max,min,num,h]=statsXcover(class,data,pathuse)
 % give you some stats regarding the use
 use = imread(pathuse);
 [m,n,z]=size(data);
 io=use==class;
 mask=ones(m,n).*NaN;mask(io)=1;
+
+pix =(m*n)-length(find(isnan(mask)));
+num=pix/(m*n)*100;
 
 std=ones(z,1).*NaN;
 mean=ones(z,1).*NaN;
@@ -20,7 +23,7 @@ for i=1:z
     min(i,1)=nanmin(nanmin(data(:,:,i).*mask));
     median(i,1)=nanmedian(nanmedian(data(:,:,i).*mask));
     dataV=data(:,:,i).*mask;dataV=dataV(:);
-    histogram(dataV,50);hold on
+    histogram(dataV,50);hold on;ylim([0 3000])
 end
 
 if class==1; title('Dehesa')
