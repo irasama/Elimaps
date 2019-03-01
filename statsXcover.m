@@ -1,19 +1,15 @@
-function [std,mean,median,max,min,num,h]=statsXcover(class,data,pathuse)
+function [std,mean,median,max,min,h]=statsXcover(class,data,pathuse)
 % give you some stats regarding the use
 use = imread(pathuse);
 [m,n,z]=size(data);
 io=use==class;
 mask=ones(m,n).*NaN;mask(io)=1;
 
-pix =(m*n)-length(find(isnan(mask)));
-num=pix/(m*n)*100;
-
 std=ones(z,1).*NaN;
 mean=ones(z,1).*NaN;
 max=ones(z,1).*NaN;
 min=ones(z,1).*NaN;
 median=ones(z,1).*NaN;
-dataHist=[];
 
 h=figure
 for i=1:z
@@ -35,4 +31,5 @@ elseif class==8;title('Crops')
 elseif class==9;title('Grasslanda')
 elseif class==10;title('Ground')
 end
+close all
 
